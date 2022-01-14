@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration debug="false">
+
+	<property name="HOME_LOG" value="D:/logs/trecking-app/app.log" />
+
+	<appender name="FILE-ROLLING"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${HOME_LOG}</file>
+
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>logs/archived/app.%d{yyyy-MM-dd}.%i.log
+			</fileNamePattern>
+			<maxFileSize>10MB</maxFileSize>
+			<totalSizeCap>1GB</totalSizeCap>
+			<maxHistory>60</maxHistory>
+		</rollingPolicy>
+
+		<encoder>
+			<pattern>%d %p %c{1.} [%t] %m%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="CONSOLE"
+		class="ch.qos.logback.core.ConsoleAppender" level="ERROR">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>
+				%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n
+			</Pattern>
+		</layout>
+	</appender>
+
+	<logger name="ru.belov.trackingapplication" level="DEBUG"
+		additivity="false">
+		<appender-ref ref="CONSOLE" />
+	</logger>
+
+	<logger name="ru.belov.trackingapplication" level="ERROR"
+		additivity="false">
+		<appender-ref ref="CONSOLE" />
+	</logger>
+
+	<root level="DEBUG">
+		<appender-ref ref="FILE-ROLLING" />
+	</root>
+
+	<root level="ERROR">
+		<appender-ref ref="CONSOLE" />
+	</root>
+
+</configuration>

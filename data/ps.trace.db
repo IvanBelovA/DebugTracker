@@ -1,0 +1,119 @@
+2022-01-12 15:55:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "USER" не найдена
+Table "USER" not found; SQL statement:
+SELECT id, name, last_name, speciality FROM user [42102-200]
+2022-01-14 00:59:15 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "INSERT INTO PROJECT(NAME) VALUE[*] ?"; ожидалось "DIRECT, SORTED, DEFAULT, VALUES, SET, (, WITH, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "INSERT INTO PROJECT(NAME) VALUE[*] ?"; expected "DIRECT, SORTED, DEFAULT, VALUES, SET, (, WITH, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO project(name) VALUE ? [42001-200]
+2022-01-14 09:37:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "TOPIC" не найдена
+Table "TOPIC" not found; SQL statement:
+CREATE TABLE task
+(
+    id SERIAL PRIMARY KEY,
+    project_id integer,
+    topic_id integer,
+    type_id integer,
+    priority_id integer,
+    user_id integer,
+    description varchar(250),
+    FOREIGN KEY (project_id) REFERENCES project(id),
+    FOREIGN KEY (topic_id) REFERENCES topic(id),
+    FOREIGN KEY (type_id) REFERENCES type(id),
+    FOREIGN KEY (priority_id) REFERENCES priority(id),
+    FOREIGN KEY (user_id) REFERENCES user(id)
+) [42102-200]
+2022-01-14 09:43:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "INSERT INTO USER (NAME, LAST_NAME, SPECIALITY)
+VALUE[*]
+('Ivan', 'Petrov', 'backend developer'),
+('Petr', 'Ivanov', 'frontend develper'),
+('Maria', 'Frolova', 'designer')"; ожидалось "DIRECT, SORTED, DEFAULT, VALUES, SET, (, WITH, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "INSERT INTO USER (NAME, LAST_NAME, SPECIALITY)
+VALUE[*]
+('Ivan', 'Petrov', 'backend developer'),
+('Petr', 'Ivanov', 'frontend develper'),
+('Maria', 'Frolova', 'designer')"; expected "DIRECT, SORTED, DEFAULT, VALUES, SET, (, WITH, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO user (name, last_name, speciality)
+VALUE
+('Ivan', 'Petrov', 'backend developer'),
+('Petr', 'Ivanov', 'frontend develper'),
+('Maria', 'Frolova', 'designer') [42001-200]
+2022-01-14 09:43:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "INSERT INTO PROJECT (NAME)
+VALUE[*]
+('Internet shop'),
+('Web application')"; ожидалось "DIRECT, SORTED, DEFAULT, VALUES, SET, (, WITH, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "INSERT INTO PROJECT (NAME)
+VALUE[*]
+('Internet shop'),
+('Web application')"; expected "DIRECT, SORTED, DEFAULT, VALUES, SET, (, WITH, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO project (name)
+VALUE
+('Internet shop'),
+('Web application') [42001-200]
+2022-01-14 09:43:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "INSERT INTO PRIORITY (NAME)
+VALUE[*]
+('Urgently'),
+('Avarage'),
+('Not urgent')"; ожидалось "DIRECT, SORTED, DEFAULT, VALUES, SET, (, WITH, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "INSERT INTO PRIORITY (NAME)
+VALUE[*]
+('Urgently'),
+('Avarage'),
+('Not urgent')"; expected "DIRECT, SORTED, DEFAULT, VALUES, SET, (, WITH, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO priority (name)
+VALUE
+('Urgently'),
+('Avarage'),
+('Not urgent') [42001-200]
+2022-01-14 09:43:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "INSERT INTO TOPIC (TITLE, DESCRIPTION)
+VALUE[*]
+('Fix bug', 'Fix bug in application'),
+('New feature', 'Added new feature in application')"; ожидалось "DIRECT, SORTED, DEFAULT, VALUES, SET, (, WITH, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "INSERT INTO TOPIC (TITLE, DESCRIPTION)
+VALUE[*]
+('Fix bug', 'Fix bug in application'),
+('New feature', 'Added new feature in application')"; expected "DIRECT, SORTED, DEFAULT, VALUES, SET, (, WITH, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO topic (title, description)
+VALUE
+('Fix bug', 'Fix bug in application'),
+('New feature', 'Added new feature in application') [42001-200]
+2022-01-14 09:43:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "INSERT INTO TYPE (TITLE)
+VALUE[*]
+('Backend'),
+('Frontend'),
+('Design')"; ожидалось "DIRECT, SORTED, DEFAULT, VALUES, SET, (, WITH, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "INSERT INTO TYPE (TITLE)
+VALUE[*]
+('Backend'),
+('Frontend'),
+('Design')"; expected "DIRECT, SORTED, DEFAULT, VALUES, SET, (, WITH, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO type (title)
+VALUE
+('Backend'),
+('Frontend'),
+('Design') [42001-200]
+2022-01-14 09:43:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "INSERT INTO TASK (PROJECT_ID, TOPIC_ID, TYPE_ID, PRIORITY_ID, USER_ID, DESCRIPTION)
+VALUE[*]
+(1, 2, 2, 2, 2, 'Add new button'),
+(1, 1, 1, 1, 1, 'Items are not added to the cart'),
+(2, 2, 3, 3, 3, 'Develop a design for web application'),
+(1, 1, 2, 1, 2, 'Buttons on the home page stuck together')"; ожидалось "DIRECT, SORTED, DEFAULT, VALUES, SET, (, WITH, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "INSERT INTO TASK (PROJECT_ID, TOPIC_ID, TYPE_ID, PRIORITY_ID, USER_ID, DESCRIPTION)
+VALUE[*]
+(1, 2, 2, 2, 2, 'Add new button'),
+(1, 1, 1, 1, 1, 'Items are not added to the cart'),
+(2, 2, 3, 3, 3, 'Develop a design for web application'),
+(1, 1, 2, 1, 2, 'Buttons on the home page stuck together')"; expected "DIRECT, SORTED, DEFAULT, VALUES, SET, (, WITH, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO task (project_id, topic_id, type_id, priority_id, user_id, description)
+VALUE
+(1, 2, 2, 2, 2, 'Add new button'),
+(1, 1, 1, 1, 1, 'Items are not added to the cart'),
+(2, 2, 3, 3, 3, 'Develop a design for web application'),
+(1, 1, 2, 1, 2, 'Buttons on the home page stuck together') [42001-200]
